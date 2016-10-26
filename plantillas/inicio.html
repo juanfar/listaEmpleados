@@ -1,0 +1,34 @@
+<h1>Lista de empleados</h1>
+ 
+
+ <div class="precarga" ng-hide="empleados">
+ 	
+ 	<i class="fa fa-refresh fa-spin fa-2x"></i>
+
+ </div>
+
+
+
+<div class="lista-empleados" ng-show="empleados">
+
+	<input type="text" ng-model="busqueda" class="form-control"><br>
+	<small>Buscando: {{busqueda}} </small><br>
+    
+    <div ng-repeat="empleado in empleados | filter: busqueda" >
+
+    	<div ng-click="verDetalles(empleado.id)">
+
+    		<div class="col-sm-2">
+    		
+		    	<img ng-src="{{ config.carpeta_imagenes + empleado.imagen }}">
+
+		    </div>
+		    	
+		    <h3> {{empleado.nombre}} </h3>
+		    <small>{{empleado.descripcion}}</small>
+
+		</div>
+
+    </div>
+
+</div>
